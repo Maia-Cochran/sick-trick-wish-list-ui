@@ -10,6 +10,7 @@ class App extends Component {
     this.state = {
       trickList: []
       }
+      this.addTrick = this.addTrick.bind(this)
     }
 
   addTrick = (newTrick) => {
