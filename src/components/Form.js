@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import './Form.css';
-import TrickList from './TrickList'
-import App from './App/App'
 
 class Form extends Component {
   constructor(props) {
     super(props);
     this.state = {
+        id: Date.now(),
         stance: '',
         name: '',
         obstacle: '',
@@ -18,21 +17,16 @@ class Form extends Component {
   
   submitTrick = event => {
       event.preventDefault();
-      const newTrick = {
-          id: Date.now(),
-          ...this.state
-        }
-        return this.props.addTrick(newTrick)
+      const newTrick = this.state
+      this.props.addTrick(newTrick)
     }
 
     
     handleChange = event => {
       this.setState({ 
-        [event.target.stance]: event.target.value,
-        [event.target.name]: event.target.value,
-        [event.target.obstacle]: event.target.value,
-        [event.target.tutorial]: event.target.value})
-    };
+        [event.target.name]: event.target.value
+    })
+  };
   
     render() {
     return (
@@ -40,6 +34,7 @@ class Form extends Component {
         <select
         placeholder='Choose your stance:'
         value={this.state.stance} 
+        name='stance'
         onChange={event => this.handleChange(event)}>
         <option value="regular">Regular</option>
         <option value="switch">Switch</option>
@@ -48,15 +43,15 @@ class Form extends Component {
         <input
           type='text'
           placeholder='Name of trick'
-          name='nameTrick'
-          value={this.state.obstacle}
+          name='name'
+          value={this.state.name}
           onChange={event => this.handleChange(event)}
         />
         
         <select
         placeholder='Choose your obstacle'
-        name='chooseObstacle'
-        value={this.state.stance} 
+        name='obstacle'
+        value={this.state.obstacle} 
         onChange={event => this.handleChange(event)}>
         <option value="flatground">Flatground</option>
         <option value="ledge">Ledge</option>
@@ -67,7 +62,7 @@ class Form extends Component {
         <input
           type='text'
           placeholder='Link to tutorial'
-          name='inputLink'
+          name='tutorial'
           value={this.state.tutorial}
           onChange={event => this.handleChange(event)}
         />

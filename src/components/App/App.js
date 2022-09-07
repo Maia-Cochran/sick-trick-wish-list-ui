@@ -28,7 +28,7 @@ class App extends Component {
     return (
       <div className="App">
         <h1>Sick Trick Wish List</h1>
-        <Form submitTrick={this.addTrick}/>
+        <Form addTrick={this.addTrick}/>
         <TrickList tricks={this.state.trickList} />
       </div>
     )
