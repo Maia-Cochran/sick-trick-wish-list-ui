@@ -1,22 +1,24 @@
 import Trick from './SingleTrick'
 
 const TrickList = ({tricks}) => {
-    const trickList = 
+    // const { trickList } = tricks
     tricks.map(trick => {
         return (
             <Trick
+            trick={trick.id}
             stance={trick.stance}
             name={trick.name}
             obstacle={trick.obstacle}
             tutorial={trick.tutorial}
-            trick={trick.id}
             key={trick.id}
             />
         )
     })
     return (
         <div className='Tricks'>
-            {trickList}
+            <Trick />
+            <Trick />
+            <Trick />
         </div>
     )
 }
