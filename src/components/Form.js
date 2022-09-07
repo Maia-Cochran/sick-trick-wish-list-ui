@@ -32,10 +32,10 @@ class Form extends Component {
     return (
       <form>
         <select
-        placeholder='Choose your stance:'
         value={this.state.stance} 
         name='stance'
         onChange={event => this.handleChange(event)}>
+        <option value="" disabled selected>Choose your stance:</option>
         <option value="regular">Regular</option>
         <option value="switch">Switch</option>
         </select>
@@ -49,10 +49,10 @@ class Form extends Component {
         />
         
         <select
-        placeholder='Choose your obstacle'
         name='obstacle'
         value={this.state.obstacle} 
         onChange={event => this.handleChange(event)}>
+        <option value="" disabled selected>Choose your obstacle:</option>
         <option value="flatground">Flatground</option>
         <option value="ledge">Ledge</option>
         <option value="stairs">Stairs</option>
