@@ -1,4 +1,5 @@
 import React from 'react'
+import './SingleTrick.css'
 
 const Trick = ({ id, stance, name, obstacle, tutorial }) => {
     return(

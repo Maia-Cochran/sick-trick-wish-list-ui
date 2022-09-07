@@ -5,15 +5,15 @@ import TrickList from '../TrickList'
 import { getAllData } from '../api-call';
 
 class App extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
       trickList: [ {
+        id: '',
         stance: '',
         name: '',
         obstacle: '',
         tutorial: '',
-        id: ''
       }
         // {
         // stance: "regular",
@@ -42,7 +42,7 @@ class App extends Component {
 
   componentDidMount = () => {
     getAllData().then(data => {
-    this.setState({trickList: [...data]})
+    this.setState({trickList: [...data[0]]})
     })
   }
 

@@ -1,11 +1,12 @@
 import Trick from './SingleTrick'
+import './TrickList.css'
 
 const TrickList = ({tricks}) => {
-    // const { trickList } = tricks
+    const trickCards = 
     tricks.map(trick => {
         return (
             <Trick
-            trick={trick.id}
+            id={trick.id}
             stance={trick.stance}
             name={trick.name}
             obstacle={trick.obstacle}
@@ -15,10 +16,11 @@ const TrickList = ({tricks}) => {
         )
     })
     return (
-        <div className='Tricks'>
+        <div className='tricks'>
+            {/* <Trick />
             <Trick />
-            <Trick />
-            <Trick />
+            <Trick /> */}
+            { trickCards }
         </div>
     )
 }
