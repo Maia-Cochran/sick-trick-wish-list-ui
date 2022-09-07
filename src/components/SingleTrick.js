@@ -4,7 +4,6 @@ import './SingleTrick.css'
 const Trick = ({ id, stance, name, obstacle, tutorial }) => {
     return(
     <div className='trick'>
-        <p>{id}</p>
         <p>{stance}</p>
         <p>{name}</p>
         <p>{obstacle}</p>

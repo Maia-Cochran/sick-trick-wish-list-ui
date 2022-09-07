@@ -8,15 +8,12 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      trickList: [ {
-        id: '',
-        stance: '',
-        name: '',
-        obstacle: '',
-        tutorial: '',
+      trickList: []
       }
-        ]
     }
+
+  addTrick = (newTrick) => {
+    this.setState({trickList: [...this.state.trickList, newTrick]})
   }
 
   componentDidMount = () => {
@@ -25,19 +22,15 @@ class App extends Component {
     })
   }
 
-  submitTrick = (addTrick) => {
-    this.setState({trickList: [...this.trickList, addTrick]})
-  }
 
   render() {
     return (
       <div className="App">
         <h1>Sick Trick Wish List</h1>
-        <Form submitTrick={this.submitTrick}/>
+        <Form submitTrick={this.addTrick}/>
         <TrickList tricks={this.state.trickList} />
       </div>
-    );
+    )
   }
 }
-
 export default App;
