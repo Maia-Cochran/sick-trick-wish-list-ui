@@ -5,9 +5,9 @@ class Form extends Component {
   constructor() {
     super();
     this.state = {
-      stance: [],
+      stance: '',
       name: '',
-      obstacle: [],
+      obstacle: '',
       tutorial: ''
     }
   }
