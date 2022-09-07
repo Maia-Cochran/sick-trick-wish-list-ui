@@ -10,26 +10,25 @@ class Form extends Component {
       obstacle: '',
       tutorial: ''
     }
+    this.handleChange = this.handleChange.bind(this)
   }
 
   handleChange = (event) => {
-    this.setState({ [event.target.name]: event.target.value });
+    this.setState({ [event.target.stance]: event.target.value,
+    [event.target.name]: event.target.value,
+    [event.target.obstacle]: event.target.value,
+    [event.target.tutorial]: event.target.value});
   }
 
   render() {
     return (
-      <form>
-        <input
-          type='select'
-          placeholder='Stance'
-          name='chooseStance'
-          value={this.state.stance}
-          onChange={event => this.handleChange(event)}
-//         <option value="grapefruit">Grapefruit</option>
-//   <option value="lime">Lime</option>
-//   <option selected value="coconut">Coconut</option>
-//   <option value="mango">Mango</option>
-// </select>
+      <form onSubmit={this.handleSubmit}>
+        <input type='select'
+        placeholder='Choose your stance:' 
+        value={this.state.stance} 
+        onChange={this.handleChange}
+        option ="Regular"
+        option ="Switch" 
         />
 
         <input
@@ -37,11 +36,10 @@ class Form extends Component {
           placeholder='Name of trick'
           name='nameTrick'
           value={this.state.name}
-          onChange={event => this.handleChange(event)}
         />
 
         <input
-          type='text'
+          type='select'
           placeholder='Choose your obstacle'
           name='chooseObstacle'
           value={this.state.obstacle}
